@@ -1,0 +1,21 @@
+{
+  "name": "logger",
+  "version": "1.0.0",
+  "description": "This program given a location or postal code will output to console the weather and time for each location.",
+  "main": "js/weather.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NotoriousRebel/Logger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NotoriousRebel/Logger/issues"
+  },
+  "homepage": "https://github.com/NotoriousRebel/Logger#readme"
+}
