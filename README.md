@@ -1,4 +1,4 @@
-# Logger
+# TimeWeather
 
 * Entering in a list of cities or postal codes this <br>
   program will query the openweathermap API and <br>
