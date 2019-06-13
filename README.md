@@ -4,9 +4,9 @@
   program will query the openweathermap API and <br>
   return the current time and temperature for the location.
 
-* Program requires node-fetch to install do
+* Program requires geo-tz, moment-timezone, and node-fetch either install them seperately or do
    ```bash
-   npm install node-fetch --save
+   yarn install 
    ```
 ### To run  
 ```bash
