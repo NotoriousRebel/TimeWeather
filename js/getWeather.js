@@ -24,6 +24,12 @@
             return resp.json();
         })
             .then(function (data) {
+            var resp_code = data.cod.toString();
+            if (resp_code !== "200") {
+                console.log("An error has occurred: ");
+                var err = new Error(data);
+                throw err;
+            }
             var far = (((parseFloat(data.main.temp) - 273.15) * 1.8) + 32).toFixed(2);
             //Convert Kelvin To Fahrenheit
             loc = loc.includes("%20") ? loc.replace("%20", " ") : loc;

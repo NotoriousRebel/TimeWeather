@@ -16,7 +16,13 @@ export function getWeather (api_key: string, loc:string){
             return resp.json()
         })
         .then(function (data) {
-            let far: string = (((parseFloat(data.main.temp)-273.15)*1.8)+32).toFixed(2);
+            const resp_code:string = data.cod.toString();
+            if(resp_code !== "200"){
+                console.log("An error has occurred: ");
+                const err:Error = new Error(data);
+                throw err;
+            }
+            const far: string = (((parseFloat(data.main.temp)-273.15)*1.8)+32).toFixed(2);
             //Convert Kelvin To Fahrenheit
             loc = loc.includes("%20") ? loc.replace("%20"," ") : loc;
             console.log("The temperature for " + loc + " in Fahrenheit is: " + far);
