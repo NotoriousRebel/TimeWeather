@@ -10,5 +10,5 @@
    ```
 ### To run  
 ```bash
-./weather Tokyo, 10001, Toronto, etc
+node main.js Tokyo, 10001, Toronto, etc
 ```
