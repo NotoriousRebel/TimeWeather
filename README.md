@@ -4,6 +4,8 @@
   program will query the openweathermap API and <br>
   return the current time and temperature for the location.
 
+* Currently requires an OpenWeatherMap API can get one [here](https://openweathermap.org/api)
+
 * Program requires geo-tz, moment-timezone, and node-fetch either install them seperately or do
    ```bash
    yarn install 
