@@ -4,20 +4,19 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports"], factory);
+        define(["require", "exports", "./getTime"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    var getTime_1 = require("./getTime");
     var fetch = require("node-fetch");
     function isPostalCode(str) {
         return /^\d+$/.test(str);
     }
     function getWeather(api_key, loc) {
         var base_url = "https://api.openweathermap.org/data/2.5/weather";
-        if (loc.includes(" ")) {
-            loc = loc.replace(" ", "%20");
-        }
+        loc = loc.includes(" ") ? loc.replace(" ", "%20") : loc;
         base_url = isPostalCode(loc) ? base_url + "?zip=" : base_url + "?q=";
         base_url += loc + '&cnt=1' + '&APPID=' + api_key;
         fetch(base_url)
@@ -25,11 +24,18 @@
             return resp.json();
         })
             .then(function (data) {
-            var unix_time = data.dt;
-            var timezone = data.timeZone;
+            console.log(data);
             var far = (((parseFloat(data.main.temp) - 273.15) * 1.8) + 32).toFixed(2);
             //Convert Kelvin To Fahrenheit
-            console.log("The temperature for " + loc + " in Fahrenheit is: " + far);
+            loc = loc.includes("%20") ? loc.replace("%20", " ") : loc;
+            //console.log("The temperature for " + loc + " in Fahrenheit is: " + far);
+            return data;
+        })
+            .then(function (data) {
+            console.log("lat is: " + data.coord.lat + " and lon is " + data.coord.lon);
+            var lat = data.coord.lat;
+            var lon = data.coord.lon;
+            getTime_1.calcTime(data.dt, lat, lon);
         })
             .catch(function (err) {
             // catch any errors

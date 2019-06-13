@@ -10,18 +10,17 @@
     'use strict';
     Object.defineProperty(exports, "__esModule", { value: true });
     var getWeather_1 = require("./getWeather");
+    var api_key = "e50dbfae2936cf8e7c75772c2f0922d3";
     if (process.argv.length <= 2) {
         throw { name: "NoArgumentsError", message: "No arguments entered!" };
     }
-    var api_key = "e50dbfae2936cf8e7c75772c2f0922d3";
     try {
         var args = process.argv.slice(2, process.argv.length)
             .toString()
             .split(",");
         args = args.filter(String);
-        console.log("Args are: " + args);
         args.forEach(function (value) {
-            console.log("Getting time and weather for location: " + value);
+            //console.log("Getting time and weather for location: " + value);
             getWeather_1.getWeather(api_key, value);
         });
     }
@@ -29,4 +28,4 @@
         console.log("An error has occurred: " + err.message);
     }
 });
-//# sourceMappingURL=weather.js.map
+//# sourceMappingURL=main.js.map

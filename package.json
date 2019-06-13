@@ -2,8 +2,13 @@
   "name": "logger",
   "version": "1.0.0",
   "description": "This program given a location or postal code will output to console the weather and time for each location.",
-  "main": "js/weather.js",
-  "dependencies": {},
+  "main": "js/main.js",
+  "dependencies": {
+    "@types/node": "^12.0.8",
+    "geo-tz": "^5.0.4",
+    "moment-timezone": "^0.5.25",
+    "node-fetch": "^2.6.0"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
