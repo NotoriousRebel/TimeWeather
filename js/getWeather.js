@@ -24,18 +24,17 @@
             return resp.json();
         })
             .then(function (data) {
-            console.log(data);
             var far = (((parseFloat(data.main.temp) - 273.15) * 1.8) + 32).toFixed(2);
             //Convert Kelvin To Fahrenheit
             loc = loc.includes("%20") ? loc.replace("%20", " ") : loc;
-            //console.log("The temperature for " + loc + " in Fahrenheit is: " + far);
+            console.log("The temperature for " + loc + " in Fahrenheit is: " + far);
             return data;
         })
             .then(function (data) {
-            console.log("lat is: " + data.coord.lat + " and lon is " + data.coord.lon);
             var lat = data.coord.lat;
             var lon = data.coord.lon;
-            getTime_1.calcTime(data.dt, lat, lon);
+            var time = getTime_1.calcTime(data.dt, lat, loc, lon);
+            console.log("The current time in: " + loc + " is: " + time);
         })
             .catch(function (err) {
             // catch any errors

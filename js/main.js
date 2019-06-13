@@ -10,9 +10,10 @@
     'use strict';
     Object.defineProperty(exports, "__esModule", { value: true });
     var getWeather_1 = require("./getWeather");
-    var api_key = "e50dbfae2936cf8e7c75772c2f0922d3";
+    var api_key = "0162c6c7047d43c990b16813d27eae23";
     if (process.argv.length <= 2) {
-        throw { name: "NoArgumentsError", message: "No arguments entered!" };
+        var err = new Error("No arguments entered!");
+        throw err;
     }
     try {
         var args = process.argv.slice(2, process.argv.length)
@@ -20,7 +21,6 @@
             .split(",");
         args = args.filter(String);
         args.forEach(function (value) {
-            //console.log("Getting time and weather for location: " + value);
             getWeather_1.getWeather(api_key, value);
         });
     }

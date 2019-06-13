@@ -16,18 +16,17 @@ export function getWeather (api_key: string, loc:string){
             return resp.json()
         })
         .then(function (data) {
-            console.log(data);
             let far: string = (((parseFloat(data.main.temp)-273.15)*1.8)+32).toFixed(2);
             //Convert Kelvin To Fahrenheit
             loc = loc.includes("%20") ? loc.replace("%20"," ") : loc;
-            //console.log("The temperature for " + loc + " in Fahrenheit is: " + far);
+            console.log("The temperature for " + loc + " in Fahrenheit is: " + far);
             return data;
         })
         .then(function (data) {
-            console.log("lat is: " + data.coord.lat + " and lon is " + data.coord.lon);
-            let lat:string = data.coord.lat;
-            let lon:string = data.coord.lon;
-            calcTime(data.dt, lat, lon);
+            const lat:string = data.coord.lat;
+            const lon:string = data.coord.lon;
+            const time:string = calcTime(data.dt, lat, loc, lon);
+            console.log("The current time in: " + loc + " is: " + time);
         })
         .catch(function (err) {
             // catch any errors

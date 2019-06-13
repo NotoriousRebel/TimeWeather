@@ -3,10 +3,11 @@
 import {type} from "os";
 import {getWeather} from "./getWeather";
 
-const api_key: string = "e50dbfae2936cf8e7c75772c2f0922d3";
+const api_key: string = "0162c6c7047d43c990b16813d27eae23";
 
 if(process.argv.length <= 2){
-    throw{name: "NoArgumentsError", message: "No arguments entered!"};
+    let err:Error = new Error("No arguments entered!");
+    throw err;
 }
 
 try {
@@ -15,7 +16,6 @@ try {
         .split(",");
     args = args.filter(String);
     args.forEach(function (value) {
-        //console.log("Getting time and weather for location: " + value);
         getWeather(api_key, value);
     });
 }
