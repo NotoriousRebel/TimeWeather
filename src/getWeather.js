@@ -11,13 +11,11 @@
     Object.defineProperty(exports, "__esModule", { value: true });
     var getTime_1 = require("./getTime");
     var fetch = require("node-fetch");
-    function isPostalCode(str) {
-        return /^\d+$/.test(str);
-    }
+    exports.isPostalCode = function (str) { return /^\d+$/.test(str); };
     function getWeather(api_key, loc) {
         var base_url = "https://api.openweathermap.org/data/2.5/weather";
         loc = loc.includes(" ") ? loc.replace(" ", "%20") : loc;
-        base_url = isPostalCode(loc) ? base_url + "?zip=" : base_url + "?q=";
+        base_url = exports.isPostalCode(loc) ? base_url + "?zip=" : base_url + "?q=";
         base_url += loc + '&cnt=1' + '&APPID=' + api_key;
         fetch(base_url)
             .then(function (resp) {

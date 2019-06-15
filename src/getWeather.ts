@@ -2,9 +2,7 @@ import {calcTime} from "./getTime";
 
 const fetch = require("node-fetch");
 
-function isPostalCode(str: string){
-    return /^\d+$/.test(str);
-}
+export const isPostalCode = (str: string) => /^\d+$/.test(str);
 
 export function getWeather (api_key: string, loc:string){
     let base_url: string = "https://api.openweathermap.org/data/2.5/weather";

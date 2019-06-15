@@ -1,26 +1,31 @@
 {
-  "name": "logger",
+  "name": "TimeWeather",
   "version": "1.0.0",
   "description": "This program given a location or postal code will output to console the weather and time for each location.",
   "main": "js/main.js",
   "dependencies": {
+    "@types/jest": "^24.0.14",
     "@types/node": "^12.0.8",
     "geo-tz": "^5.0.4",
     "moment-timezone": "^0.5.25",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "ts-jest": "^24.0.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^24.8.0",
+    "typescript": "^3.5.2"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NotoriousRebel/Logger.git"
+    "url": "git+https://github.com/NotoriousRebel/TimeWeather.git"
   },
-  "author": "",
+  "author": "NotoriousRebel",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/NotoriousRebel/Logger/issues"
+    "url": "https://github.com/NotoriousRebel/TimeWeather/issues"
   },
-  "homepage": "https://github.com/NotoriousRebel/Logger#readme"
+  "homepage": "https://github.com/NotoriousRebel/TimeWeather#readme"
 }

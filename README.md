@@ -14,3 +14,7 @@
 ```bash
 node main.js Tokyo, 10001, Toronto, etc
 ```
+### To run tests
+```bash
+yarn test or npm run test
+```

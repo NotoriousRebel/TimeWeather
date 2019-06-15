@@ -3,7 +3,7 @@
 import {type} from "os";
 import {getWeather} from "./getWeather";
 
-const api_key: string = "";
+const api_key: string = "0162c6c7047d43c990b16813d27eae23";
 
 if(process.argv.length <= 2){
     const err:Error = new Error("No arguments entered.");

@@ -3,5 +3,5 @@ node_modules
 # Webstorm
 .idea/*
 
-tests/*.js
 src/*.map
+tests/*.map
