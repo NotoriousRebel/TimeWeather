@@ -10,7 +10,7 @@
     'use strict';
     Object.defineProperty(exports, "__esModule", { value: true });
     var getWeather_1 = require("./getWeather");
-    var api_key = "0162c6c7047d43c990b16813d27eae23";
+    var api_key = "";
     if (process.argv.length <= 2) {
         var err = new Error("No arguments entered.");
         throw err;
